@@ -44,7 +44,7 @@ const App = () => {
             >
                 <Suspense fallback={<Loading />}>
                     <Stall />
-                    <ambientLight intensity={0.5} />
+                    <ambientLight intensity={1} />
                     <Clickable />
                 </Suspense>
             </Canvas>

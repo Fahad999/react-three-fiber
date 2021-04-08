@@ -1,0 +1,92 @@
+{
+    "name": "react-threejs",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": ".",
+    "dependencies": {
+        "@material-ui/core": "^4.11.2",
+        "@material-ui/icons": "^4.11.2",
+        "@material-ui/lab": "^4.0.0-alpha.57",
+        "@react-spring/three": "^9.0.0-rc.3",
+        "@react-three/drei": "^2.2.18",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "axios": "^0.21.1",
+        "bootstrap": "^4.6.0",
+        "can-autoplay": "^3.0.0",
+        "cannon-es": "^0.16.0",
+        "dashjs": "^3.2.1",
+        "drei": "^2.2.17",
+        "easy-peasy": "^4.0.1",
+        "event-emitter-es6": "^1.1.5",
+        "file-loader": "^6.2.0",
+        "flexbox": "0.0.3",
+        "form-data": "^3.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "lerp": "^1.0.3",
+        "lodash": "^4.17.21",
+        "prop-types": "^15.7.2",
+        "qs": "^6.9.6",
+        "query-string": "^6.14.0",
+        "react": "^17.0.1",
+        "react-bootstrap": "^1.4.3",
+        "react-cookie": "^4.0.3",
+        "react-dom": "^17.0.1",
+        "react-nipple": "^1.0.2",
+        "react-player": "^2.8.1",
+        "react-redux": "^7.2.2",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
+        "react-screen-orientation": "0.0.4",
+        "react-scripts": "4.0.1",
+        "react-share": "^4.4.0",
+        "react-three-fiber": "^5.3.14",
+        "react-validation": "^3.0.7",
+        "react-welcome-page": "^0.2.1",
+        "reactour": "^1.18.0",
+        "reactstrap": "^8.9.0",
+        "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0",
+        "styled-components": "^4.0.0",
+        "three": "^0.124.0",
+        "three.interaction": "^0.2.3",
+        "threex": "^1.0.0",
+        "typeface-montserrat": "^1.1.13",
+        "typeface-poppins": "^1.1.13",
+        "use-cannon": "^0.5.3",
+        "validator": "^13.5.2",
+        "valtio": "^0.6.2",
+        "web-vitals": "^0.2.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "node ./scripts/build.js",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "prettier": "^2.2.1",
+        "redux-devtools-extension": "^2.13.8",
+        "renamer": "^2.0.1",
+        "rewire": "^5.0.0"
+    }
+}

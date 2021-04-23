@@ -1,9 +1,9 @@
-import React, { Suspense, useRef, useEffect, useState, useMemo } from 'react'
-import { Canvas, useLoader, useFrame, useThree } from 'react-three-fiber'
-import '../styles.css'
-import { Sky, Html } from 'drei'
-import CustomStall from './Stall'
-import LogoSpinner from './common/LogoSpinner'
+import React, { Suspense, useRef, useEffect, useState, useMemo } from "react";
+import { Canvas, useLoader, useFrame, useThree } from "@react-three/fiber";
+import "../styles.css";
+import { Sky, Html } from "@react-three/drei";
+import CustomStall from "./Stall";
+import LogoSpinner from "./common/LogoSpinner";
 
 function Loading() {
     return (
@@ -11,16 +11,16 @@ function Loading() {
             prepend="false"
             position
             style={{
-                position: 'absolute',
-                width: '100vw',
-                height: '100vh',
+                position: "absolute",
+                width: "100vw",
+                height: "100vh",
             }}
         >
             <LogoSpinner
-                style={{ position: 'absolute', top: '50vh', left: '50vw' }}
+                style={{ position: "absolute", top: "50vh", left: "50vw" }}
             />
         </Html>
-    )
+    );
 }
 
 function Scene() {
@@ -28,7 +28,7 @@ function Scene() {
         <>
             <CustomStall />
         </>
-    )
+    );
 }
 
 const Home = () => {
@@ -39,7 +39,7 @@ const Home = () => {
                 concurrent
                 camera={{ far: 10000, position: [-1, 3, 43] }}
                 onCreated={({ camera, scene }) => {
-                    camera.lookAt(-1, 2, 0)
+                    camera.lookAt(-1, 2, 0);
                 }}
             >
                 <pointLight
@@ -54,7 +54,7 @@ const Home = () => {
                 </Suspense>
             </Canvas>
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

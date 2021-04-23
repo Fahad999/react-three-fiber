@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
-import { Canvas } from "react-three-fiber";
+import { Canvas } from "@react-three/fiber";
 import Clickable from "./components/Clickable";
-import { Html } from "drei";
+import { Html } from "@react-three/drei";
 import Stall from "./components/Stall";
 import LogoSpinner from "./components/common/LogoSpinner";
 import "./styles.css";

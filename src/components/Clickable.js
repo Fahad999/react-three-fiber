@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React, { useState } from "react";
-import { useThree, useFrame } from "react-three-fiber";
-import { Html } from "drei";
+import { useThree, useFrame } from "@react-three/fiber";
+import { Html } from "@react-three/drei";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import { withStyles } from "@material-ui/core";
 
@@ -49,7 +49,7 @@ const Clickable = (props) => {
     const cameraLookAt = [-1, 2, 0];
 
     const positionArray = [
-        [-21, 4, 12],
+        [-21, 3, 12],
         [-0.6335110664367676, 3, 13.842817306518555],
         [-2.011301040649414, 3, -4.7442431449890137],
         [14.16017723083496, 3, 18.048870086669922],
@@ -57,7 +57,7 @@ const Clickable = (props) => {
     ];
 
     const lookAtArray = [
-        [-37, 0, 0],
+        [-37, 1, 0],
         [0, 0, 0],
         [-40, 0, -4300],
         [60, 0, 0],
@@ -65,7 +65,7 @@ const Clickable = (props) => {
     ];
 
     const meshArray = [
-        [-25.71963882446289, 3, 11.39088249206543],
+        [-25.71963882446289, 8, 11.39088249206543],
         [-2, 0.2, 9.417530059814453],
         [-14.247562408447266, 5, -16.381975173950195],
         [21.181074142456055, 2, 16.847023963928223],

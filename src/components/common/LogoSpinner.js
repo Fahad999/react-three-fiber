@@ -6,17 +6,19 @@ const LogoSpinner = ({ classes }) => {
     const [speed, setSpeed] = useState(2);
     return (
         <div
-            style={{
-                width: "100%",
-                height: "100%",
-                background: "rgba(227, 230, 240, 1)",
-            }}
+            style={
+                {
+                    // width: "100%",
+                    // height: "100%",
+                    // background: "rgba(227, 230, 240, 1)",
+                }
+            }
         >
             <div
                 style={{
                     position: "absolute",
-                    top: "50%",
-                    left: "50%",
+                    // top: "50%",
+                    // left: "50%",
                     transform: `translate(${-50}%,${-50}%)`,
                     msTransform: `translate(${-50}%,${-50}%)`,
                 }}

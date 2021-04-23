@@ -1,8 +1,10 @@
 import React, { useCallback } from "react";
 import * as THREE from "three";
-import { useLoader } from "react-three-fiber";
+import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import demo from "../assets/demo.glb";
+import { Html } from "@react-three/drei";
+import Vimeo from "@u-wave/react-vimeo";
 
 const Booth = () => {
     let url = demo;
@@ -16,7 +18,7 @@ const Booth = () => {
     // video.setAttribute("id","yourId")
     video.load();
     video.src =
-        "https://player.vimeo.com/external/532533432.hd.mp4?s=83957cee6419d40411a1ac6a7a080e9e06fbaf55&profile_id=174";
+        "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4";
     // video.controls = true
     let posttt = video.play();
 
@@ -34,12 +36,17 @@ const Booth = () => {
 
             node.children.map((i, index) => {
                 // i.onClick(window.alert("Clicked" + i.name));
-                console.log(i.name, i);
+                // console.log(i.name, i);
                 if (i.name === "video_wall_01") {
                     // console.log(i.name, "Found")
                     // console.log(i.children[0])
-                    i.material = material;
-                    i.material.map.flipY = false;
+                    // i.children = (
+                    //     <mesh geometry={i.geometry}>
+                    //         <meshStandardMaterial color="hotpink" />
+                    //     </mesh>
+                    // );
+                    // i.material = <meshStandardMaterial color="hotpink" />;
+                    // i.material.map.flipY = false;
                 }
 
                 let box1 = new THREE.Box3();
@@ -58,10 +65,117 @@ const Booth = () => {
             console.log("loading");
         })
     );
+    console.log(glb.scene, "Scene muthe");
 
     return (
         <>
-            <primitive object={glb.scene} ref={stall_ref} />
+            <primitive object={glb.scene} ref={stall_ref}>
+                {glb.scene.children.map((i, index) => {
+                    console.log(i.name, i);
+                    if (i.name == "video_wall_01") {
+                        console.log("sucess");
+                        return (
+                            <mesh
+                                geometry={i.geometry}
+                                position={i.position}
+                                // matrix={i.matrix}
+                                rotation={i.rotation}
+                                scale={i.scale}
+                                quaternion={i.quaternion}
+                                parent={i.parent}
+                                matrixWorld={i.matrixWorld}
+                                layers={i.layers}
+                                up={i.up}
+                                matrixAutoUpdate={true}
+                                matrixWorldNeedsUpdate={false}
+                            >
+                                <meshStandardMaterial color="black" />
+                                <Html transform distanceFactor={1}>
+                                    {/* <video
+                                        style={{
+                                            WebkitTransform: "scaleX(-1)",
+                                            outline: "unset",
+                                        }}
+                                        width="800"
+                                        height="700"
+                                        controls="true"
+                                        autoplay="true"
+                                        name="media"
+                                    >
+                                        <source
+                                            src="https://vod-progressive.akamaized.net/exp=1619114622~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F86%2F21%2F525432693%2F2464644377.mp4~hmac=abd63479b38d2e0999032cf79e387724616d9801363c6e501583da296842ecb3/vimeo-prod-skyfire-std-us/01/86/21/525432693/2464644377.mp4?filename=Enrolling+_+Molina+Marketplace+Explainer+Series.mp4"
+                                            type="video/mp4"
+                                        ></source>
+                                    </video> */}
+                                    <Vimeo
+                                        style={{
+                                            WebkitTransform: "scaleX(-1)",
+                                            // outlineStyle: "dotted",
+                                            // outlineColor: "white",
+                                            outline: "unset",
+                                        }}
+                                        video="https://vimeo.com/535737026"
+                                        autoplay={false}
+                                        height="790"
+                                        width="800"
+                                    />
+                                </Html>
+                            </mesh>
+                        );
+                    }
+
+                    // if (i.name == "presentation_screen") {
+                    //     return (
+                    //         <mesh
+                    //             geometry={i.geometry}
+                    //             position={i.position}
+                    //             // matrix={i.matrix}
+                    //             rotation={i.rotation}
+                    //             scale={i.scale}
+                    //             quaternion={i.quaternion}
+                    //             parent={i.parent}
+                    //             matrixWorld={i.matrixWorld}
+                    //             layers={i.layers}
+                    //             up={i.up}
+                    //             matrixAutoUpdate={true}
+                    //             matrixWorldNeedsUpdate={false}
+                    //         >
+                    //             <meshStandardMaterial color="black" />
+                    //             <Html transform distanceFactor={1}>
+                    //                 {/* <video
+                    //                     style={{
+                    //                         WebkitTransform: "scaleX(-1)",
+                    //                         outline: "unset",
+                    //                     }}
+                    //                     width="800"
+                    //                     height="700"
+                    //                     controls="true"
+                    //                     autoplay="true"
+                    //                     name="media"
+                    //                 >
+                    //                     <source
+                    //                         src="https://vod-progressive.akamaized.net/exp=1619114622~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F86%2F21%2F525432693%2F2464644377.mp4~hmac=abd63479b38d2e0999032cf79e387724616d9801363c6e501583da296842ecb3/vimeo-prod-skyfire-std-us/01/86/21/525432693/2464644377.mp4?filename=Enrolling+_+Molina+Marketplace+Explainer+Series.mp4"
+                    //                         type="video/mp4"
+                    //                     ></source>
+                    //                 </video> */}
+                    //                 <Vimeo
+                    //                     style={{
+                    //                         WebkitTransform: "scaleX(-1)",
+                    //                         // outlineStyle: "dotted",
+                    //                         // outlineColor: "white",
+                    //                         outline: "unset",
+                    //                     }}
+                    //                     video="https://vimeo.com/535737026"
+                    //                     autoplay={false}
+                    //                     height="790"
+                    //                     width="800"
+                    //                 />
+                    //             </Html>
+                    //         </mesh>
+                    //     );
+                    // }
+                })}
+            </primitive>
         </>
     );
 };

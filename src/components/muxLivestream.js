@@ -3,8 +3,8 @@ import Hls from "hls.js";
 
 export default function VideoPlayer() {
     const videoRef = useRef(null);
-    const src = "https://stream.mux.com/{playbvack_id}.m3u8";
-
+    const src =
+        "https://stream.mux.com/4w3BMKP66nMZLHr6QqH8JiVAvcOfcshb7TVbqslJmpY.m3u8";
     useEffect(() => {
         let hls;
         if (videoRef.current) {
@@ -39,12 +39,14 @@ export default function VideoPlayer() {
                 // outlineStyle: "dotted",
                 // outlineColor: "white",
                 outline: "unset",
+                // width: "100%",
+                // maxWidth: "500px",
             }}
             height={790}
             width={800}
             controls
             ref={videoRef}
-            style={{ width: "100%", maxWidth: "500px" }}
+            // style={{ width: "100%", maxWidth: "500px" }}
         />
     );
 }

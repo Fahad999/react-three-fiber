@@ -53,7 +53,13 @@ export default function VideoPlayer() {
         <video
             controls
             ref={videoRef}
-            style={{ width: "100%", maxWidth: "500px" }}
+            style={{
+                WebkitTransform: "scaleX(-1)",
+                outline: "unset",
+            }}
+            width="800"
+            height="700"
+            // style={{ width: "100%", maxWidth: "500px" }}
         />
     );
 }

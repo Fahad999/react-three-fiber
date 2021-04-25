@@ -1,28 +1,45 @@
+//
+// This example assumes you are importing mux-embed from npm
+// View this code on codesandbox: https://codesandbox.io/s/mux-data-hls-js-react-ucvvh
+//
 import React, { useEffect, useRef } from "react";
 import Hls from "hls.js";
+import mux from "mux-embed";
 
 export default function VideoPlayer() {
     const videoRef = useRef(null);
     const src =
         "https://stream.mux.com/4w3BMKP66nMZLHr6QqH8JiVAvcOfcshb7TVbqslJmpY.m3u8";
+
     useEffect(() => {
         let hls;
         if (videoRef.current) {
             const video = videoRef.current;
+            const initTime = Date.now();
 
             if (video.canPlayType("application/vnd.apple.mpegurl")) {
-                // Some browers (safari and ie edge) support HLS natively
+                // This will run in safari, where HLS is supported natively
                 video.src = src;
             } else if (Hls.isSupported()) {
                 // This will run in all other modern browsers
                 hls = new Hls();
                 hls.loadSource(src);
                 hls.attachMedia(video);
-            } else {
-                console.error(
-                    "This is a legacy browser that doesn't support MSE"
-                );
             }
+
+            mux.monitor(video, {
+                debug: false,
+                // pass in the 'hls' instance and the 'Hls' constructor
+                hlsjs: hls,
+                Hls,
+                data: {
+                    env_key: "tvaa9hlrf1kr2lv764trnp4en", // required
+                    // Metadata fields
+                    player_name: "Main Player", // any arbitrary string you want to use to identify this player
+                    player_init_time: initTime,
+                    // ...
+                },
+            });
         }
 
         return () => {
@@ -34,19 +51,9 @@ export default function VideoPlayer() {
 
     return (
         <video
-            style={{
-                WebkitTransform: "scaleX(-1)",
-                // outlineStyle: "dotted",
-                // outlineColor: "white",
-                outline: "unset",
-                // width: "100%",
-                // maxWidth: "500px",
-            }}
-            height={790}
-            width={800}
             controls
             ref={videoRef}
-            // style={{ width: "100%", maxWidth: "500px" }}
+            style={{ width: "100%", maxWidth: "500px" }}
         />
     );
 }

@@ -5,6 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import demo from "../assets/demo.glb";
 import { Html } from "@react-three/drei";
 import Vimeo from "@u-wave/react-vimeo";
+import MuxPlayer from "./muxLivestream";
 
 const Booth = () => {
     let url = demo;
@@ -107,7 +108,7 @@ const Booth = () => {
                                             type="video/mp4"
                                         ></source>
                                     </video> */}
-                                    <Vimeo
+                                    {/* <Vimeo
                                         style={{
                                             WebkitTransform: "scaleX(-1)",
                                             // outlineStyle: "dotted",
@@ -118,7 +119,8 @@ const Booth = () => {
                                         autoplay={false}
                                         height="790"
                                         width="800"
-                                    />
+                                    /> */}
+                                    <MuxPlayer />
                                 </Html>
                             </mesh>
                         );

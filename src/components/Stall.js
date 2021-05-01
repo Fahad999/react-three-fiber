@@ -73,7 +73,7 @@ const Booth = () => {
             <primitive object={glb.scene} ref={stall_ref}>
                 {glb.scene.children.map((i, index) => {
                     console.log(i.name, i);
-                    if (i.name == "video_wall_01") {
+                    if (i.name == "presentation_wall_01") {
                         console.log("sucess");
                         return (
                             <mesh
@@ -91,7 +91,7 @@ const Booth = () => {
                                 matrixWorldNeedsUpdate={false}
                             >
                                 <meshStandardMaterial color="black" />
-                                <Html transform distanceFactor={1}>
+                                <Html transform distanceFactor={0.4}>
                                     {/* <video
                                         style={{
                                             WebkitTransform: "scaleX(-1)",

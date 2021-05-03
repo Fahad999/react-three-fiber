@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Clickable from "./components/Clickable";
 import { Html } from "@react-three/drei";
@@ -26,8 +26,26 @@ function Loading() {
 const App = () => {
     const cameraPosition = [-1, 3, 43];
     const cameraLookAt = [-1, 2, 0];
+    const [cameraState, setCameraState] = useState(undefined);
+
+    const revertToOriginalPosition = () => {
+        if (cameraState) {
+            cameraState.position.set(-1, 3, 43);
+            cameraState.lookAt(-1, 2, 0);
+            cameraState.updateProjectionMatrix();
+        }
+    };
     return (
         <>
+            <button
+                id={"revertToOriginalPosition"}
+                style={{ position: "absolute", zIndex: "10" }}
+                // customIconContainer={classes.addIconContainerClass}
+                // OpenIcon={CloseIcon}
+                onClick={(event) => {
+                    revertToOriginalPosition();
+                }}
+            ></button>
             <Canvas
                 style={{ height: "100%" }}
                 data-tut="reacttour_lol"
@@ -40,6 +58,7 @@ const App = () => {
                         cameraLookAt[1],
                         cameraLookAt[2]
                     );
+                    setCameraState(camera);
                 }}
             >
                 <Suspense fallback={<Loading />}>

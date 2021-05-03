@@ -72,7 +72,7 @@ const Booth = () => {
         <>
             <primitive object={glb.scene} ref={stall_ref}>
                 {glb.scene.children.map((i, index) => {
-                    console.log(i.name, i);
+                    // console.log(i.name, i);
                     if (i.name == "presentation_wall_01") {
                         console.log("sucess");
                         return (

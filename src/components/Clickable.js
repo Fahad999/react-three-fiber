@@ -126,8 +126,8 @@ const Clickable = (props) => {
         camera.fov = 75;
         camera.updateProjectionMatrix();
         // manageNavigationButtonDisplay(meshArray);
-        document.getElementById("navigateModelButton" + index).style.display =
-            "none";
+        // document.getElementById("navigateModelButton" + index).style.display =
+        //     "none";
 
         // camera.position.set(
         //     positionArray[index][0],
@@ -167,6 +167,7 @@ const Clickable = (props) => {
     };
     return (
         <>
+            {/* {positions?.shift()} */}
             {console.log(positionsArr)}
             {positionsArr?.map((i, index) => {
                 // console.log(i);

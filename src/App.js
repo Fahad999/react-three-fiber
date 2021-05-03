@@ -5,6 +5,8 @@ import { Html } from "@react-three/drei";
 import Stall from "./components/Stall";
 import LogoSpinner from "./components/common/LogoSpinner";
 import "./styles.css";
+import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
+
 function Loading() {
     return (
         <Html
@@ -37,15 +39,25 @@ const App = () => {
     };
     return (
         <>
-            <button
+            <CancelRoundedIcon
                 id={"revertToOriginalPosition"}
-                style={{ position: "absolute", zIndex: "10" }}
+                style={{
+                    position: "absolute",
+                    zIndex: "10",
+                    width: 47,
+                    height: 47,
+                    // left: "97vw",
+                    right: "20px",
+                    top: "20px",
+                    borderRadius: "100%",
+                    cursor: "pointer",
+                }}
                 // customIconContainer={classes.addIconContainerClass}
                 // OpenIcon={CloseIcon}
                 onClick={(event) => {
                     revertToOriginalPosition();
                 }}
-            ></button>
+            ></CancelRoundedIcon>
             <Canvas
                 style={{ height: "100%" }}
                 data-tut="reacttour_lol"

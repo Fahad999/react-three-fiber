@@ -48,8 +48,8 @@ const Clickable = (props) => {
     const positions = [
         {
             name: "initialCameraCoordinates",
-            cameraPosition: [-1, 3, 43],
-            cameraLookAt: [-1, 2, 0],
+            cameraPosition: [-1, 8, 43],
+            cameraLookAt: [-1, 4, 0],
             navButtonPosition: undefined,
             isVisible: {
                 presentation: 0,
@@ -118,10 +118,14 @@ const Clickable = (props) => {
     useEffect(() => {
         if (positions) {
             setinitialPositionsArr(positions[0]);
-            positions.shift();
+            // positions.shift();
             setPositionsArr(positions);
         }
     }, []);
+
+    useEffect(() => {
+        positionsArr?.shift();
+    }, [positionsArr]);
     const changeCameraHandler = (index) => {
         camera.fov = 75;
         camera.updateProjectionMatrix();

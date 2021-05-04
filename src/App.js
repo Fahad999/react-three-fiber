@@ -26,14 +26,14 @@ function Loading() {
 }
 
 const App = () => {
-    const cameraPosition = [-1, 3, 43];
-    const cameraLookAt = [-1, 2, 0];
+    const cameraPosition = [-1, 5, 43];
+    const cameraLookAt = [-1, 5, 0];
     const [cameraState, setCameraState] = useState(undefined);
 
     const revertToOriginalPosition = () => {
         if (cameraState) {
-            cameraState.position.set(-1, 3, 43);
-            cameraState.lookAt(-1, 2, 0);
+            cameraState.position.set(-1, 5, 43);
+            cameraState.lookAt(-1, 5, 0);
             cameraState.updateProjectionMatrix();
         }
     };

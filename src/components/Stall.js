@@ -106,10 +106,10 @@ const Booth = () => {
                                             // outlineColor: "white",
                                             outline: "unset",
                                         }}
-                                        video="https://vimeo.com/535737026"
+                                        video="https://vimeo.com/389102557"
                                         autoplay={false}
                                         height="790"
-                                        width="800"
+                                        width="790"
                                     />
                                     {/* <MuxPlayer /> */}
                                 </Html>

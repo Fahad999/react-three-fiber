@@ -16,6 +16,7 @@ import sintelimage from "../assets/sintel1.png";
 import { isEmpty } from "lodash";
 // import document from "../assets/document.glb";
 import lady from "../assets/lady.glb";
+
 const Booth = () => {
     const { camera, gl, scene } = useThree();
 
@@ -118,19 +119,41 @@ const Booth = () => {
             console.log("loading");
         })
     );
+
     console.log(glb.scene, "Scene muthe");
     useEffect(() => {
         if (!isEmpty(glb.scene)) {
-            example = deskfile.scene;
-            scene.add(example);
-            example = ladymesh.scene;
-            scene.add(example);
-            example = documentZone.scene;
-            scene.add(example);
-            example = videoZone.scene;
-            scene.add(example);
-            example = presentationZone.scene;
-            scene.add(example);
+            // example = deskfile.scene;
+            // // scene.add(example);
+            // example = ladymesh.scene;
+            // scene.add(example);
+            // example = documentZone.scene;
+            // scene.add(example);
+            // example = videoZone.scene;
+            // scene.add(example);
+            // example = presentationZone.scene;
+            let loader = new GLTFLoader();
+            let modelsArray = [
+                desk,
+                lady,
+                video_zone,
+                presentation_zone,
+                document_zone,
+            ];
+            modelsArray.forEach((model) => {
+                loader.load(
+                    model,
+                    function (gltf) {
+                        scene.add(gltf.scene);
+                    },
+                    undefined,
+                    function (error) {
+                        console.error(error);
+                    }
+                );
+            });
+
+            // scene.add(example);
         }
     }, [glb]);
 

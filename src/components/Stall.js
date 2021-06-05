@@ -1,15 +1,24 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import * as THREE from "three";
-import { useLoader } from "@react-three/fiber";
+import { useLoader, useThree } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import demo from "../assets/demonew.glb";
+import demo from "../assets/without.glb";
+import desk from "../assets/help_desk.glb";
+import document_zone from "../assets/document.glb";
+import video_zone from "../assets/videozone.glb";
+import presentation_zone from "../assets/prasantion.glb";
+
 import { Html } from "@react-three/drei";
 import Vimeo from "@u-wave/react-vimeo";
 import MuxPlayer from "./muxLivestream";
 import videoD from "../assets/1280.mp4";
 import sintelimage from "../assets/sintel1.png";
-
+import { isEmpty } from "lodash";
+// import document from "../assets/document.glb";
+import lady from "../assets/lady.glb";
 const Booth = () => {
+    const { camera, gl, scene } = useThree();
+
     let url = demo;
     const box = new THREE.Box3();
 
@@ -68,7 +77,62 @@ const Booth = () => {
             console.log("loading");
         })
     );
+
+    let example = new THREE.Object3D();
+
+    const deskfile = useLoader(
+        GLTFLoader,
+        desk,
+        (onprogress = () => {
+            console.log("loading");
+        })
+    );
+
+    const ladymesh = useLoader(
+        GLTFLoader,
+        lady,
+        (onprogress = () => {
+            console.log("loading");
+        })
+    );
+
+    const documentZone = useLoader(
+        GLTFLoader,
+        document_zone,
+        (onprogress = () => {
+            console.log("loading");
+        })
+    );
+
+    const videoZone = useLoader(
+        GLTFLoader,
+        video_zone,
+        (onprogress = () => {
+            console.log("loading");
+        })
+    );
+    const presentationZone = useLoader(
+        GLTFLoader,
+        presentation_zone,
+        (onprogress = () => {
+            console.log("loading");
+        })
+    );
     console.log(glb.scene, "Scene muthe");
+    useEffect(() => {
+        if (!isEmpty(glb.scene)) {
+            example = deskfile.scene;
+            scene.add(example);
+            example = ladymesh.scene;
+            scene.add(example);
+            example = documentZone.scene;
+            scene.add(example);
+            example = videoZone.scene;
+            scene.add(example);
+            example = presentationZone.scene;
+            scene.add(example);
+        }
+    }, [glb]);
 
     return (
         <>
